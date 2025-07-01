@@ -33,7 +33,7 @@ return {
 
     -- Keymaps with descriptions for which-key
     vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "[P]roject [F]iles" })
-    vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Git files" })
+    vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Git files" })
 
     vim.keymap.set("n", "<leader>pws", function()
       local word = vim.fn.expand("<cword>")
@@ -49,6 +49,6 @@ return {
       builtin.grep_string({ search = vim.fn.input("Grep > ") })
     end, { desc = "[P]roject [S]earch" })
 
-    vim.keymap.set("n", "<leader>vh", builtin.help_tags, { desc = "[V]im [H]elp tags" })
+    vim.keymap.set("n", "<leader>v0", builtin.help_tags, { desc = "[V]im [H]elp tags" })
   end,
 }

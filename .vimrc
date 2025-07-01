@@ -129,8 +129,3 @@ if count(s:opam_available_tools,"ocp-indent") == 0
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
 
-set number
-" Center the cursor vertically when moving up or down.
-nnoremap k kzz
-nnoremap j jzz
-

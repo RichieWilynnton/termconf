@@ -29,10 +29,11 @@ return {
       vim.keymap.del("n", "<C-x>", { buffer = bufnr }) -- Remove original horizontal split mapping
 
       -- Add custom mappings
-      vim.keymap.set("n", "<C-h>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-    end
+      vim.keymap.set("n", "<leader>h", api.node.open.horizontal, opts("Open: Horizontal Split"))
+      vim.keymap.set("n", "<leader>v", api.node.open.vertical, opts("Open: Vertical Split"))
 
-    nvimtree.setup({
+    end
+nvimtree.setup({
       view = { width = 35, relativenumber = true },
       on_attach = my_on_attach,
     })
