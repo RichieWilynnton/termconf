@@ -15,7 +15,7 @@ vim.keymap.set('n', 'ci{', '"_ci{', { noremap = true })
 vim.keymap.set('n', 'ci}', '"_ci}', { noremap = true })
 vim.keymap.set('n', 'cc', '"_cc', { noremap = true })
 
-vim.keymap.set('n', '<leader>cc', ':CopilotChatOpen<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>gg', ':CopilotChatToggle<CR>', { noremap = true, silent = true })
 
 -- Center the cursor always
 vim.keymap.set('n', 'k', 'kzz', { noremap = true })
