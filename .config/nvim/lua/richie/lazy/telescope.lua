@@ -20,10 +20,14 @@ return {
       defaults = {
         mappings = {
           i = {
-            ["<C-y>"] = copy_file_path,  -- Copy in insert mode
+            ["<C-h>"] = actions.select_horizontal,  -- Open in horizontal split
+            ["<C-y>"] = copy_file_path,            -- Copy in insert mode
+            ["<C-x>"] = false,                     -- Disable default C-x (optional)
           },
           n = {
-            ["<C-y>"] = copy_file_path,  -- Copy in normal mode
+            ["<C-h>"] = actions.select_horizontal,  -- Open in horizontal split
+            ["<C-y>"] = copy_file_path,            -- Copy in insert mode
+            ["<C-x>"] = false,                     -- Disable default C-x (optional)
           },
         },
       },
