@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias vi=nvim
 alias tm=tmux
-alias tma="tmux new -A"
+alias tma="tmux attach-session -t"
 alias tml="tmux ls"
 alias tmk="tmux kill-session -t"
 

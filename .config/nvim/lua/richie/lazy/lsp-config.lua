@@ -1,29 +1,39 @@
 return {
   "mason-org/mason-lspconfig.nvim",
   opts = {
-    -- Ensure clangd is installed via Mason
     ensure_installed = {  
-    "clangd",           -- For C/C++ language server  
-    "clang-format",     -- For C/C++ code formatting  
-    "cmake-language-server",  
-    "gitleaks",  
-    "lua-language-server",  
-    "ocamlformat",  
-     },  
+      "clangd",           -- for c/c++ language server  
+      "clang-format",     
+      "cmake-language-server",  
+      "gitleaks",  
+      "lua-language-server",  
+      "ocamlformat",  
+      "coq-lsp",          -- Coq language server  
+    },  
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
     "neovim/nvim-lspconfig",
   },
   config = function()
-    -- Set up clangd 
+    vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, { desc = "Go to Definition (LSP)" })
+    -- Enable LSP capabilities (for autocompletion)
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+    -- Configure clangd
     require("lspconfig").clangd.setup({
-      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      capabilities = capabilities,
       on_attach = function(client, bufnr)
-        -- Enable formatting
         client.server_capabilities.documentFormattingProvider = true
-        -- Keybinding to format the buffer
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = bufnr, desc = "Format code" })
+      end,
+    })
+
+    -- Configure Coq LSP
+    require("lspconfig").coq_lsp.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        vim.keymap.set("n", "<leader>lp", vim.lsp.buf.hover, { buffer = bufnr, desc = "Show Coq proof info" })
       end,
     })
   end,
